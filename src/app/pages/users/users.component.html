@@ -1,0 +1,13 @@
+<h2>User Dashboard</h2>
+
+<button (click)="reload()">Reload Users</button>
+
+<div *ngIf="loading()">Loading users...</div>
+
+<div *ngIf="error()">Error loading users</div>
+
+<ul>
+  <li *ngFor="let user of users()">
+    <b>{{ user.name }}</b> — {{ user.email }}
+  </li>
+</ul>
