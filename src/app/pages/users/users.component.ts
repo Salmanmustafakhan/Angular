@@ -1,4 +1,4 @@
-import { Component, inject, computed } from '@angular/core';
+import { Component, inject, computed, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UserService } from '../../services/user.service';
 
@@ -37,4 +37,14 @@ export class UsersComponent {
   reload() {
     this.userService.usersResource.reload();
   }
+
+  newName = signal('');
+newEmail = signal('');
+
+  async addUser() {
+  await this.userService.createUser(this.newName(), this.newEmail());
+  this.newName.set('');
+  this.newEmail.set('');
+}
+
 }

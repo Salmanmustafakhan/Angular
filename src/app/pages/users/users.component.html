@@ -10,4 +10,9 @@
   <li *ngFor="let user of users()">
     <b>{{ user.name }}</b> — {{ user.email }}
   </li>
+
+<input placeholder="Name" (input)="newName.set($any($event.target).value)" />
+<input placeholder="Email" (input)="newEmail.set($any($event.target).value)" />
+<button (click)="addUser()">Add User</button>
+
 </ul>
